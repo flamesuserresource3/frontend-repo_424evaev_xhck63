@@ -24,6 +24,7 @@ export default function OnamMemory() {
             </div>
           </motion.div>
 
+          {/* Replaced photo with a soft decorative panel (no image) */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -31,14 +32,22 @@ export default function OnamMemory() {
             transition={{ duration: 0.6 }}
             className="order-1 md:order-2"
           >
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-xl">
-              <img
-                src="https://images.unsplash.com/photo-1630776546171-8a20fd0ff803?q=80&w=1600&auto=format&fit=crop"
-                alt="Onam celebration with pookkalam"
-                className="h-full w-full object-cover"
-                loading="lazy"
-              />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-rose-500/10 via-transparent to-amber-400/10" />
+            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-rose-100 bg-gradient-to-tr from-rose-50 via-amber-50 to-white shadow-xl">
+              {/* Subtle floating petals */}
+              <div className="pointer-events-none absolute inset-0">
+                <div className="absolute left-6 top-6 h-10 w-10 rounded-full bg-rose-300/30 blur-xl" />
+                <div className="absolute right-10 top-12 h-16 w-16 rounded-full bg-amber-300/30 blur-2xl" />
+                <div className="absolute bottom-8 left-10 h-14 w-14 rounded-full bg-pink-300/30 blur-xl" />
+              </div>
+              <div className="relative z-10 flex h-full w-full flex-col items-center justify-center p-6 text-center">
+                <div className="mb-3 inline-flex items-center justify-center rounded-full bg-white/70 px-3 py-1 text-rose-600 shadow-sm backdrop-blur">
+                  <Flower2 className="mr-2 h-4 w-4" />
+                  Onam brought us together
+                </div>
+                <p className="max-w-sm text-sm text-rose-600">
+                  No photo needed — just the feeling of that day. Colors, laughter, and a spark that still glows.
+                </p>
+              </div>
             </div>
           </motion.div>
         </div>
