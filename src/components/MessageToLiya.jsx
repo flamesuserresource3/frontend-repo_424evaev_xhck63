@@ -22,7 +22,7 @@ export default function MessageToLiya({ name }) {
             I’m grateful for every little moment — the sweet messages, the shared smiles, and the quiet understanding between us.
             Here’s to many more months and memories. I’m so lucky to have you.
           </p>
-          <p className="mt-6 text-right text-rose-500">With love,<br/>Yours</p>
+          <p className="mt-6 text-right text-rose-500">With love,<br/>Jithin</p>
         </motion.div>
       </div>
     </section>

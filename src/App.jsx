@@ -1,5 +1,4 @@
 import AnniversaryHero from "./components/AnniversaryHero.jsx";
-import OnamMemory from "./components/OnamMemory.jsx";
 import MilestoneCounter from "./components/MilestoneCounter.jsx";
 import MessageToLiya from "./components/MessageToLiya.jsx";
 
@@ -12,9 +11,6 @@ function App() {
       {/* Hero */}
       <AnniversaryHero name="Liya" officialDateLabel={officialDateLabel} />
 
-      {/* Onam memory section */}
-      <OnamMemory />
-
       {/* Milestones */}
       <MilestoneCounter startISO={officialDateISO} />
 
@@ -23,7 +19,7 @@ function App() {
 
       {/* Simple footer */}
       <footer className="border-t border-rose-100 bg-white/70 py-6 text-center text-sm text-rose-500 backdrop-blur">
-        Made with love to celebrate our first month together.
+        Made with love to celebrate our first month together — Jithin.
       </footer>
     </div>
   );
