@@ -1,28 +1,32 @@
-import { useState } from 'react'
+import AnniversaryHero from "./components/AnniversaryHero.jsx";
+import OnamMemory from "./components/OnamMemory.jsx";
+import MilestoneCounter from "./components/MilestoneCounter.jsx";
+import MessageToLiya from "./components/MessageToLiya.jsx";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const officialDateLabel = "6 Oct 2025";
+  const officialDateISO = "2025-10-06T00:00:00";
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
-        </div>
-      </div>
+    <div className="min-h-screen bg-rose-50 text-rose-900">
+      {/* Hero */}
+      <AnniversaryHero name="Liya" officialDateLabel={officialDateLabel} />
+
+      {/* Onam memory section */}
+      <OnamMemory />
+
+      {/* Milestones */}
+      <MilestoneCounter startISO={officialDateISO} />
+
+      {/* Personal message */}
+      <MessageToLiya name="Liya" />
+
+      {/* Simple footer */}
+      <footer className="border-t border-rose-100 bg-white/70 py-6 text-center text-sm text-rose-500 backdrop-blur">
+        Made with love to celebrate our first month together.
+      </footer>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
