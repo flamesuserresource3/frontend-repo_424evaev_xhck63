@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Clock } from "lucide-react";
 
 function daysBetween(start) {
@@ -28,12 +28,18 @@ export default function MilestoneCounter({ startISO }) {
   }, [days]);
 
   return (
-    <section className="py-16">
+    <section className="py-20">
       <div className="mx-auto max-w-5xl px-6">
-        <div className="mb-8 flex items-center gap-2 text-rose-600">
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mb-8 flex items-center gap-2 text-rose-600"
+        >
           <Clock className="h-5 w-5" />
           Our time together so far
-        </div>
+        </motion.div>
 
         <div className="grid gap-6 sm:grid-cols-3">
           {stats.map((s) => (
@@ -43,9 +49,23 @@ export default function MilestoneCounter({ startISO }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4 }}
-              className="rounded-2xl border border-rose-100 bg-white p-6 shadow-sm"
+              whileHover={{ y: -6, boxShadow: "0 20px 40px rgba(244, 63, 94, 0.15)" }}
+              className="relative overflow-hidden rounded-2xl border border-rose-100 bg-white p-6 shadow-sm"
             >
-              <div className="text-3xl font-extrabold text-rose-900">{s.value}</div>
+              <div className="pointer-events-none absolute -right-6 -top-6 h-24 w-24 rounded-full bg-rose-100/60 blur-2xl" />
+              <div className="text-3xl font-extrabold text-rose-900">
+                <AnimatePresence mode="popLayout">
+                  <motion.span
+                    key={s.value}
+                    initial={{ y: 8, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    exit={{ y: -8, opacity: 0 }}
+                    transition={{ duration: 0.25 }}
+                  >
+                    {s.value}
+                  </motion.span>
+                </AnimatePresence>
+              </div>
               <div className="mt-1 text-sm text-rose-500">{s.label}</div>
             </motion.div>
           ))}
